@@ -8,7 +8,7 @@ easy and relatively fast. Examples use python's binding, pydbus.
 - PyGObject==3.42.1
 - linux os based system
 
-You also install python's requirements using
+You may install python's requirements using
 ```bash
 pip install -r requirements.txt
 ```

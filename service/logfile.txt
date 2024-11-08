@@ -148,3 +148,16 @@ Function adder called with: (7, 11) arguments equal to 18 at 2024-11-08 17:09:33
 Function adder called with: (8, 11) arguments equal to 19 at 2024-11-08 17:09:33.546229
 Function adder called with: (9, 11) arguments equal to 20 at 2024-11-08 17:09:33.547386
 Function adder called with: (10, 11) arguments equal to 21 at 2024-11-08 17:09:33.548478
+Function adder called with: (0, 1) arguments equal to 1 at 2024-11-08 18:12:23.651803
+Function adder called with: (0, 12) arguments equal to 12 at 2024-11-08 18:16:40.328052
+Function adder called with: (1, 12) arguments equal to 13 at 2024-11-08 18:16:40.329658
+Function adder called with: (2, 12) arguments equal to 14 at 2024-11-08 18:16:40.331008
+Function adder called with: (3, 12) arguments equal to 15 at 2024-11-08 18:16:40.332289
+Function adder called with: (4, 12) arguments equal to 16 at 2024-11-08 18:16:40.333719
+Function adder called with: (5, 12) arguments equal to 17 at 2024-11-08 18:16:40.334986
+Function adder called with: (6, 12) arguments equal to 18 at 2024-11-08 18:16:40.336346
+Function adder called with: (7, 12) arguments equal to 19 at 2024-11-08 18:16:40.338399
+Function adder called with: (8, 12) arguments equal to 20 at 2024-11-08 18:16:40.339871
+Function adder called with: (9, 12) arguments equal to 21 at 2024-11-08 18:16:40.341225
+Function adder called with: (10, 12) arguments equal to 22 at 2024-11-08 18:16:40.342563
+Function adder called with: (11, 12) arguments equal to 23 at 2024-11-08 18:16:40.343824

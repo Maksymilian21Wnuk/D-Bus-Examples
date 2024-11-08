@@ -24,6 +24,7 @@ class Logger(dbus.service.Object):
     
     @dbus.service.signal('org.meks.Logger')
     def LogCountLimit(self):
+        print("Emiting")
         pass
     
         

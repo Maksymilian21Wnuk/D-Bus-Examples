@@ -4,14 +4,14 @@ from gi.repository import GLib
 
 
 def signal_handler():
-    print("Too many log-lines")
+    print("Over 100 log lines")
 
 def main():
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
     
     bus = dbus.SessionBus()
     
-    service = bus.get_object('org.meks.Logger', '/org/meks/Logger')
+    service = bus.get_object('org.meks.Logger', '/Logger')
     
     service.connect_to_signal('LogCountLimit', signal_handler, dbus_interface='org.meks.Logger')
 
