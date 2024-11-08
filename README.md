@@ -1,29 +1,71 @@
-# D-Bus
+# D-Bus WORK IN PROGRESS may contain errors
 Mechanism for making linux's programs communication (Inter-process communication)
 easy and relatively fast. Examples use python's binding, pydbus.
 
-# Some requirements
-pip install dbus-python
-linux based os
+## Some requirements
+- dbus_python==1.2.18
+- pick==2.4.0
+- PyGObject==3.42.1
+- linux os based system
 
-# Useful commands and programs
-1. d-feet - D-Bus debugger and inspector. Easily introspect  
+You also install python's requirements using
+```bash
+pip install -r requirements.txt
+```
+in project's root
+## Useful commands and programs
+1. **d-feet** - D-Bus debugger and inspector. Easily introspect  
 dbus services, their interfaces and methods.
 ```bash
 # debian
 sudo apt install d-feet
 # red-hat
 sudo dnf install d-feet
+# usage
+d-feet
+```
+2. **dbus-monitor** - monitor D-Bus communication's bus messages either from
+systembus or sessionbus.
+
+System bus
+```bash
+dbus-monitor --system
+```
+Session bus
+```bash
+dbus-monitor --session
+```
+**System bus** - not user-specific bus, mostly used
+in communication on os level, where root priveleges are needed. Examples:
+- Networks
+- Devices like disks, keyboard
+- Hardware (you may shutdown pc using dbus message)
+- Power (controlling battery with dbus)
+
+**Session bus** -
+Examples:
+- Desktop applications (Firefox, Spotify)
+- User written programs (like those in examples)
+- Graphical environment, GNOME or KDE
+
+3. **dbus-send** - sending a message to a service
+
+Sends a message to object /org/freedesktop/DBus
+of interface org.freedesktop.DBus with method ListNames, this should print reply of listing available dbus services
+```bash
+dbus-send --session --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames
 ```
 
-# Connecting to bus
+
+
+## Connecting to bus
 
 ```python
 import dbus
 bus = dbus.SessionBus()
 ```
 
-# Proxy
+## Proxy
 Proxy is an object used to represent remote object from another process.
 Using proxy you can call methods or emit signals.
 ```python
@@ -32,7 +74,7 @@ object_name = '/org/freedesktop/DBus'
 proxy = bus.get_object(interface, object_name)
 ```
 
-# Calling method
+## Calling method
 
 ```python
 # first option
@@ -41,3 +83,5 @@ names = proxy.ListNames()
 method = proxy.get_dbus_method('ListNames', 'org.freedesktop.DBus')
 names = method()
 ```
+
+

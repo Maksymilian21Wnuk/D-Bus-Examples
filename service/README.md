@@ -1,11 +1,5 @@
 # Service example
 
+Run this with python loop.py
 
-# Service
-Implements logger with interface org.meks.Logger that has method
-for appending to logfile string with date of log appending.
-
-# Introspection
-Service can be introspected using:
-1. d-feet GUI tool
-2. 
+To communicate with dbus go to ../logger_client folder

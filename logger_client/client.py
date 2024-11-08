@@ -49,8 +49,9 @@ def main():
     
     match (index):
         case 0:
-            adder(2, 3)
-
+            n = int(input("how many times?"))
+            for i in range(n):
+                adder(i, n)
         case 1:
             get_count()
         
