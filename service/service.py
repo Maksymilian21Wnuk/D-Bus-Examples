@@ -1,7 +1,7 @@
 import dbus
 import dbus.service
 import datetime
-
+import os
 
 
 class Logger(dbus.service.Object):
@@ -22,12 +22,15 @@ class Logger(dbus.service.Object):
     def GetLogCount(self):
         return self.log_count
     
+    # signal emited when there are more logs than 100
     @dbus.service.signal('org.meks.Logger')
     def LogCountLimit(self):
         print("Emiting")
         pass
     
-        
+    # Method that appends string to log file,
+    # it can emit signal if there are more than LIMIT
+    # log lines
     @dbus.service.method('org.meks.Logger', in_signature='s')
     def AddLog(self, log_str):
         log_str = "{} at {}".format(log_str, datetime.datetime.now())
@@ -38,6 +41,11 @@ class Logger(dbus.service.Object):
         # emit signal if count bigger than limit
         if (self.log_count > self.LIMIT) :
             self.LogCountLimit()
+            try :
+                os.remove(self.LOGFILE)
+                self.log_count = 0
+            except FileNotFoundError:
+                pass
         
         return "Log saved"
 

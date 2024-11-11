@@ -17,11 +17,13 @@ in project's root
 1. **d-feet** - D-Bus debugger and inspector. Easily introspect  
 dbus services, their interfaces and methods.
 ```bash
-# debian
+# debian based
 sudo apt install d-feet
-# red-hat
+d-feet
+```
+```bash
+# red-hat based
 sudo dnf install d-feet
-# usage
 d-feet
 ```
 2. **dbus-monitor** - monitor D-Bus communication's bus messages either from
@@ -69,9 +71,9 @@ bus = dbus.SessionBus()
 Proxy is an object used to represent remote object from another process.
 Using proxy you can call methods or emit signals.
 ```python
-interface_name = 'org.freedesktop.DBus'
+bus_name = 'org.freedesktop.DBus'
 object_name = '/org/freedesktop/DBus'
-proxy = bus.get_object(interface, object_name)
+proxy = bus.get_object(bus_name, object_name)
 ```
 
 ## Calling method
@@ -80,7 +82,8 @@ proxy = bus.get_object(interface, object_name)
 # first option
 names = proxy.ListNames()
 # second option
-method = proxy.get_dbus_method('ListNames', 'org.freedesktop.DBus')
+interface = 'org.freedesktop.DBus'
+method = proxy.get_dbus_method('ListNames', interface)
 names = method()
 ```
 
