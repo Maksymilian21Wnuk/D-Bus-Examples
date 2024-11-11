@@ -1,9 +1,0 @@
-Function adder called with: (91, 100) arguments equal to 191 at 2024-11-08 18:24:32.972032
-Function adder called with: (92, 100) arguments equal to 192 at 2024-11-08 18:24:32.972381
-Function adder called with: (93, 100) arguments equal to 193 at 2024-11-08 18:24:32.972766
-Function adder called with: (94, 100) arguments equal to 194 at 2024-11-08 18:24:32.973138
-Function adder called with: (95, 100) arguments equal to 195 at 2024-11-08 18:24:32.973468
-Function adder called with: (96, 100) arguments equal to 196 at 2024-11-08 18:24:32.973811
-Function adder called with: (97, 100) arguments equal to 197 at 2024-11-08 18:24:32.974160
-Function adder called with: (98, 100) arguments equal to 198 at 2024-11-08 18:24:32.974432
-Function adder called with: (99, 100) arguments equal to 199 at 2024-11-08 18:24:32.974700
