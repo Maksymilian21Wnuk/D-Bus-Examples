@@ -1,0 +1,84 @@
+\begin{frame}
+    \frametitle{D-Bus}
+    Potrzeba zaimplementowania ustandaryzowanego,
+    bezpiecznego IPC dla
+    środowisk graficznych.
+
+    2002 - początek projektu
+
+    2006 - stabilna wersja
+\end{frame}
+
+\begin{frame}
+    \frametitle{Działanie}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{dbus.png}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zalety}
+    \begin{itemize}
+        \item Relatywnie prosty (ale nie libdbus...)
+        \item Dostępność standardu w wielu językach programowania
+        \item Security policy
+        \item 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{D-Bus bus}
+    Demon do którego łączą się aplikacje. Przekierowuje
+    wiadomości od aplikacji do innych aplikacji. Zaimplementowany
+    w libdbus.
+\end{frame}
+
+\begin{frame}
+    \frametitle{libdbus}
+    Niskopoziomowa biblioteka pozwalająca aplikacjom na wymianę 
+    wiadomości.
+\end{frame}
+
+\begin{frame}
+    \frametitle{System bus}
+    Z poziomu użytkownika, osobna instancja dla każdego.
+    \begin{itemize}
+        \item GUI KDE, GNOME
+        \item Aplikacje, Spotify, Firefox
+        \item PulseAudio
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Session bus}
+    Z poziomu systemu operacyjnego.
+    \begin{itemize}
+        \item Sieci, NetworkManager
+        \item Urządzenia, UDisks, USB
+        \item Uprawnienia, PolicyKit
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Połączenie serwisu}
+    Następuje przy połączeniu do demona.
+    Serwis ma przyznawaną nazwę:
+    \begin{itemize}
+        \item Unikalna: :1-37, :1-42
+        \item Well-known name: org.Cinammon, org.mpris.MediaPlayer2.spotify
+        \item Znak : zarezerwowany
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Obiekt}
+    \begin{itemize}
+        \item Ścieżka do obiektu jako nazwa: 
+        \begin{itemize}
+            \item /org/Cinnamon 
+            \item /com/Test
+            \item /org/kde/kspread/sheets/3/cells/4/5
+        \end{itemize}
+        \item Implementuje interfejsy
+        \item Implementuje sygnały i metody
+        \item Wymaga określenia bus name
+    \end{itemize}
+\end{frame}
