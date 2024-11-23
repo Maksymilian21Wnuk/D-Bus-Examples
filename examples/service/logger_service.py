@@ -52,14 +52,18 @@ class Logger(object):
         self.CountChange(self.LogCount)
         return "Log saved"
         
-        
-# connect to bus
-bus = SessionBus()
+
+def main():
+    # connect to bus
+    bus = SessionBus()
 
 
-bus.publish("org.meks.Logger", 
-            ("1", Logger("logfile.txt")),
-            ("2", Logger("log2.txt"))                    
-                                )
-loop = GLib.MainLoop()
-loop.run()
+    bus.publish("org.meks.Logger", 
+                ("1", Logger("logfile.txt")),
+                ("2", Logger("log2.txt"))                    
+                                    )
+    loop = GLib.MainLoop()
+    loop.run()
+
+if __name__ == "__main__":
+    main()

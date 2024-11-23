@@ -25,9 +25,6 @@ proxy = bus.get(SERVICE_NAME, '/org/meks/Logger/1')
 
 
 
-
-
-
 # get methods of logger iface
 res = proxy[LOGGER_INTERFACE]
 

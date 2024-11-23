@@ -1,20 +1,21 @@
-import dbus
-import dbus.mainloop.glib
+from pydbus import SessionBus
 from gi.repository import GLib
 
 
-def signal_handler(*args):
-    print("{} lines".format(args))
+def signal_handler(payload):
+    print("{} lines".format(payload))
 
 def main():
-    dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
-    bus = dbus.SessionBus()
+    # connect to session bus
+    bus = SessionBus()
 
-    service = bus.get_object('org.meks.Logger', '/Logger')
+    # listen to signals of object 1
+    proxy = bus.get('org.meks.Logger', '/org/meks/Logger/1')
 
-    service.connect_to_signal('LogCountLimit', signal_handler, dbus_interface='org.meks.Logger')
-
+    # listen to CountChange signal emit with handler signal_handler
+    proxy.CountChange.connect(signal_handler)
+    
     loop = GLib.MainLoop()
     loop.run()
 

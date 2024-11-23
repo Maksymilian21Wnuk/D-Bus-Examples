@@ -17,10 +17,11 @@
 \begin{frame}
     \frametitle{Zalety}
     \begin{itemize}
-        \item Relatywnie prosty (ale nie libdbus...)
+        \item Prosty
         \item Dostępność standardu w wielu językach programowania
         \item Security policy
         \item Abstrakcja połączenia
+        \item Walidacja typów
     \end{itemize}
 \end{frame}
 
@@ -31,11 +32,11 @@
     w libdbus.
 \end{frame}
 
-\begin{frame}
-    \frametitle{libdbus}
-    Niskopoziomowa biblioteka pozwalająca aplikacjom na wymianę 
-    wiadomości.
-\end{frame}
+%\begin{frame}
+%    \frametitle{libdbus}
+%    Niskopoziomowa biblioteka pozwalająca aplikacjom na wymianę 
+%    wiadomości.
+%\end{frame}
 
 \begin{frame}
     \frametitle{System bus}
@@ -76,7 +77,7 @@
         \begin{itemize}
             \item /org/Cinnamon 
             \item /com/Test
-            \item /org/kde/kspread/sheets/3/cells/4/5
+            \item /org/meks/Logger/1 org/meks/Logger/2
         \end{itemize}
         \item Implementuje interfejsy
         \item Implementuje sygnały i metody
@@ -89,6 +90,23 @@
     Zbiór metod, sygnałów oraz właściwości (properties).
     Implementowane przez obiekty. 
     Coś jak abstract class.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Proxy}
+    Obiekt tworzony przez klienta jako reprezentacja
+    "zdalnego" obiektu innego procesu. Niskopoziomowo tworzy
+    wiadomość do serwisu z requestowanym wykonaniem metod i zwraca
+    odpowiedź.
+
+    \begin{flushleft}
+        \begin{lstlisting}
+Proxy proxy = new Proxy(getBusConnection(),
+                         "/remote/object/path");
+Object returnValue = proxy.MethodName(arg1, arg2);
+        \end{lstlisting}      
+    \end{flushleft}
+
 \end{frame}
 
 \begin{frame}
