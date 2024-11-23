@@ -1,8 +1,37 @@
-# D-Bus WORK IN PROGRESS may contain errors
-Mechanism for making linux's programs communication (Inter-process communication)
-easy and relatively fast. Examples use python's binding, pydbus.
+# D-Bus Tutorial Examples
+Mechanism for making linux's programs communication (Inter-process communication). 
 
-## Some requirements
+# Table of contents
+1. [Examples](#examples)
+    1. [Service](#service)
+    2. [Signal Client](#signal-client)
+    3. [Client](#client)
+2. [Requirements](#requirements)
+3. [Tools & Commands](#tools--commands)
+4. [Basics](#basics)
+
+## Examples <a name='examples'></a>
+Examples use python's binding, pydbus. It's strongly advised to learn 
+by looking at hands-on files in examples folder. There is implemented:
+### Service <a name="service"> </a>
+- implementing signal when log is added
+- method for adding log
+- properties, such as:
+    - Upper - making new logs upper-case, read/write
+    - LogCount - count of log lines number, readOnly
+    - LogFileName - name of file in which logs are written, read/write
+
+### Signal Client <a name="signal-client"> </a>
+Signal listening client, that handles
+the signal emitted by logger service
+
+### Client <a name="client"> </a>
+Couple of client-side examples,
+exchanging information with logger service
+with saving logs, getting properties and 
+setting them.
+
+## Requirements <a name="requirements"> </a>
 - dbus_python==1.2.18
 - pick==2.4.0
 - PyGObject==3.42.1
@@ -13,7 +42,7 @@ You may install python's requirements using
 pip install -r requirements.txt
 ```
 in project's root
-## Useful commands and programs
+## Tools & Commands <a name="tools--commands"> </a>
 1. **d-feet** - D-Bus debugger and inspector. Easily introspect  
 dbus services, their interfaces and methods.
 ```bash
@@ -59,15 +88,15 @@ dbus-send --session --print-reply --dest=org.freedesktop.DBus /org/freedesktop/D
 ```
 
 
-
-## Connecting to bus
+## Basics <a name="basics"> </a>
+### Connecting to bus
 
 ```python
-import dbus
-bus = dbus.SessionBus()
+from pydbus import SessionBus
+bus = SessionBus()
 ```
 
-## Proxy
+### Proxy
 Proxy is an object used to represent remote object from another process.
 Using proxy you can call methods or emit signals.
 ```python
@@ -76,15 +105,16 @@ object_name = '/org/freedesktop/DBus'
 proxy = bus.get_object(bus_name, object_name)
 ```
 
-## Calling method
+### Calling method
 
 ```python
-# first option
-names = proxy.ListNames()
-# second option
-interface = 'org.freedesktop.DBus'
-method = proxy.get_dbus_method('ListNames', interface)
-names = method()
-```
+from pydbus import SessionBus
 
+# connects to bus
+bus = SessionBus()
+# gets proxy of SERVICE_NAME and OBJECT_PATH 
+proxy = bus.get(SERVICE_NAME, OBJECT_PATH)
+# calls method implemented by IFACE_NAME interface
+res = proxy[IFACE_NAME].MethodCall(arg1, arg2)
+```
 
