@@ -1,0 +1,25 @@
+some string at 2024-11-22 16:06:08.101831
+some string at 2024-11-22 16:06:31.101275
+log at 2024-11-22 19:34:33.469398
+some_other_log at 2024-11-22 19:34:41.379846
+Function adder called with: (0, 3) arguments equal to 3 at 2024-11-23 14:44:14.294282
+Function adder called with: (1, 3) arguments equal to 4 at 2024-11-23 14:44:14.295743
+Function adder called with: (2, 3) arguments equal to 5 at 2024-11-23 14:44:14.297063
+Function adder called with: (0, 2) arguments equal to 2 at 2024-11-23 14:44:36.538801
+Function adder called with: (1, 2) arguments equal to 3 at 2024-11-23 14:44:36.540257
+Function adder called with: (0, 2) arguments equal to 2 at 2024-11-23 14:47:01.184875
+Function adder called with: (1, 2) arguments equal to 3 at 2024-11-23 14:47:01.186367
+Function adder called with: (0, 3) arguments equal to 3 at 2024-11-23 14:47:46.235919
+Function adder called with: (1, 3) arguments equal to 4 at 2024-11-23 14:47:46.237250
+Function adder called with: (2, 3) arguments equal to 5 at 2024-11-23 14:47:46.238351
+Function adder called with: (0, 3) arguments equal to 3 at 2024-11-23 14:47:54.146174
+Function adder called with: (1, 3) arguments equal to 4 at 2024-11-23 14:47:54.147675
+Function adder called with: (2, 3) arguments equal to 5 at 2024-11-23 14:47:54.148936
+Function adder called with: (0, 3) arguments equal to 3 at 2024-11-23 14:48:50.645477
+Function adder called with: (1, 3) arguments equal to 4 at 2024-11-23 14:48:50.647042
+Function adder called with: (2, 3) arguments equal to 5 at 2024-11-23 14:48:50.648348
+Function adder called with: (0, 3) arguments equal to 3 at 2024-11-23 14:52:00.373626
+Function adder called with: (1, 3) arguments equal to 4 at 2024-11-23 14:52:00.375116
+Function adder called with: (2, 3) arguments equal to 5 at 2024-11-23 14:52:00.376346
+jkl at 2024-11-23 14:53:18.238130
+Some log at 2024-11-23 17:33:11.148700

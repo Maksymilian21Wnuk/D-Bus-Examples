@@ -1,0 +1,76 @@
+
+
+\begin{frame}
+    \frametitle{Interfejsy standardowe}
+    Interfejsy pozwalające badać właściwości 
+    serwisów. Między innymi:
+    \begin{itemize}
+        \item org.freedesktop.DBus.Peer - metody Ping i GetMachineId
+        \item org.freedesktop.DBus.Introspectable - reprezentacja obiektu w XML
+        \item org.freedesktop.DBus.Properties - manipulacja właściwościami, odczyt wartości
+        \item org.freedesktop.DBus.ObjectManager
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{XML}
+    \lstset{
+    basicstyle=\tiny\ttfamily, 
+    breaklines=true,           
+    breakatwhitespace=true,    
+    stepnumber=1               
+}
+    \begin{lstlisting}
+    <node>
+        <interface name="org.meks.Logger">
+            <method name="AddLog">
+                <arg direction="in"  type="s" name="log_str" />
+                <arg direction="out" type="s" />
+            </method>
+            <signal name="CountChange">
+                <arg direction="out" type="i" name="count" />
+            </signal>
+            <property name="Upper" type="b" access="readwrite"/>
+            <property name="LogCount" type="i" access="read" />
+            <property name="LogFileName" type="s" access="readwrite"/>
+        </interface>
+    </node>
+
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Co możemy implementować?}
+    Istnieje wiele interfejsów z możliwością implementacji.
+    Przykładowe API do implementacji:
+    \begin{itemize}
+        \item \href{https://specifications.freedesktop.org/mpris-spec/latest/}{Standard MPRIS}-odtwarzacze muzyki
+        \item Więcej na: \href{https://specifications.freedesktop.org/}{https://specifications.freedesktop.org/}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Narzędzia}
+    \begin{itemize}
+        \item dbus-monitor - debugger do monitorowania wiadomości dbusa
+        \item dbus-send - wysyłanie wiadomości do busy
+        \item d-feet - graficzny debugger do sprawdzania
+        serwisów i wysyłania wiadomości
+        \item 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Implementacje, Bindingi}
+    Freedesktop.org oferuje implementacje i bindingi protokołu w D-Bus. Najciekawsze:
+    \begin{itemize}
+        \item pydbus - wysokopoziomowa implementacja w pythonie
+        \item zbus - implementacja w rust
+        \item libdbus - niskopoziomowe API w C, nie polecane do pisania 
+        prostych aplikacji
+        \item GDbus - implementacja w C, już lepiej w tym pisać.
+        Ale kod lepiej wygenerować
+    \end{itemize}
+\end{frame}

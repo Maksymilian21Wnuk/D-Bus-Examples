@@ -1,0 +1,37 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-Bus Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/Logger">
+    <interface name="org.freedesktop.DBus.Introspectable">
+      <method name="Introspect">
+        <arg direction="out" type="s" />
+      </method>
+    </interface>
+
+    <interface name="org.freedesktop.DBus.Properties">
+      <method name="Get">
+        <arg direction="in"  type="s" name="interface_name" />
+        <arg direction="in"  type="s" name="property_name" />
+        <arg direction="out" type="v" />
+      </method>
+      <method name="GetAll">
+        <arg direction="in"  type="s" name="interface_name" />
+        <arg direction="out" type="a{sv}" />
+      </method>
+      <method name="Set">
+        <arg direction="in"  type="s" name="interface_name" />
+        <arg direction="in"  type="s" name="property_name" />
+        <arg direction="in"  type="v" name="value" />
+      </method>
+    </interface>
+
+    <interface name="org.meks.Logger">
+        <property name="upper" type="b" access="readwrite"/>
+        <property name="log_count" type="i" access="read" />
+        <signal name="LogCountLimit">
+        </signal>
+        <method name="AddLog">
+            <arg direction="in"  type="s" name="log_str" />
+            <arg direction="out" type="s" />
+        </method>
+    </interface>
+</node>

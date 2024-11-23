@@ -20,7 +20,7 @@
         \item Relatywnie prosty (ale nie libdbus...)
         \item Dostępność standardu w wielu językach programowania
         \item Security policy
-        \item 
+        \item Abstrakcja połączenia
     \end{itemize}
 \end{frame}
 
@@ -71,6 +71,7 @@
 \begin{frame}
     \frametitle{Obiekt}
     \begin{itemize}
+        \item Wymaga określenia bus name
         \item Ścieżka do obiektu jako nazwa: 
         \begin{itemize}
             \item /org/Cinnamon 
@@ -79,6 +80,48 @@
         \end{itemize}
         \item Implementuje interfejsy
         \item Implementuje sygnały i metody
-        \item Wymaga określenia bus name
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+    \frametitle{Interfejsy}
+    Zbiór metod, sygnałów oraz właściwości (properties).
+    Implementowane przez obiekty. 
+    Coś jak abstract class.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Przykład}
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{service1.png}
+        \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{example2.png}        
+        \end{center}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{System typów}
+    \href{https://dbus.freedesktop.org/doc/dbus-specification.html}{Parę przykładów:}
+    \begin{itemize}
+        \item aai - tablica tablic intów
+        \item a(ss) - array structów z dwoma stringami
+        \item a\{sd\} - mapa klucz-string value-double
+        \item v - variant, dynamiczny typ
+        \item a\{sv\} - mapa z wartościami o różnych typach
+    \end{itemize}
+\end{frame}
+
+
+
+
+
+% https://dbus.freedesktop.org/doc/dbus-api-design.html
