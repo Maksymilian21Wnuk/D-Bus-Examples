@@ -17,10 +17,10 @@
 \begin{frame}
     \frametitle{Zalety}
     \begin{itemize}
-        \item Prosty
-        \item Dostępność standardu w wielu językach programowania
-        \item Security policy
-        \item Abstrakcja połączenia
+        \item Prosty 
+        \item Dostępność standardu w wielu językach programowania 
+        \item Security policy 
+        \item Abstrakcja połączenia 
         \item Walidacja typów
     \end{itemize}
 \end{frame}
@@ -39,17 +39,17 @@
 %\end{frame}
 
 \begin{frame}
-    \frametitle{System bus}
+    \frametitle{Session bus}
     Z poziomu użytkownika, osobna instancja dla każdego.
     \begin{itemize}
-        \item GUI KDE, GNOME
+        \item DE KDE, GNOME 
         \item Aplikacje, Spotify, Firefox
         \item PulseAudio
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Session bus}
+    \frametitle{System bus}
     Z poziomu systemu operacyjnego.
     \begin{itemize}
         \item Sieci, NetworkManager
@@ -69,21 +69,6 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Obiekt}
-    \begin{itemize}
-        \item Wymaga określenia bus name
-        \item Ścieżka do obiektu jako nazwa: 
-        \begin{itemize}
-            \item /org/Cinnamon 
-            \item /com/Test
-            \item /org/meks/Logger/1 org/meks/Logger/2
-        \end{itemize}
-        \item Implementuje interfejsy
-        \item Implementuje sygnały i metody
-    \end{itemize}
-\end{frame}
-
 
 \begin{frame}
     \frametitle{Interfejsy}
@@ -91,6 +76,61 @@
     Implementowane przez obiekty. 
     Coś jak abstract class.
 \end{frame}
+
+\begin{frame}
+    \frametitle{Obiekt}
+    \begin{itemize}
+        \item Wymaga określenia bus name 
+        \item Ścieżka do obiektu jako nazwa:
+        \begin{itemize}
+            \item /org/Cinnamon 
+            \item /com/Test
+            \item /org/meks/Logger/1 org/meks/Logger/2 
+        \end{itemize}
+        \item Implementuje interfejsy. Sygnały i metody. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Wiadomości niskopoziomowo}
+    \begin{itemize}
+        \item Wiadomości wywołujące metody
+        \item Wiadomości zwracające return value metody
+        \item Błędy zwracające wyjątki spowodowane wywołaniem metody
+        \item Asynchroniczne sygnały
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Metody}
+    Synchroniczne. Serwis implementuje metodę którą
+    klient może wywołać z argumentami. Może zwracać
+    z powrotem wartość.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sygnały}
+    Asynchroniczne. Serwis emituje sygnał.
+    Klient nasłuchuje sygnałów i implementuje handler.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Przykład}
+    \begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{service1.png}
+        \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{example2.png}        
+        \end{center}
+    \end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}[fragile]
     \frametitle{Proxy}
@@ -110,30 +150,13 @@ Object returnValue = proxy.MethodName(arg1, arg2);
 \end{frame}
 
 \begin{frame}
-    \frametitle{Przykład}
-    \begin{columns}
-    \begin{column}{0.5\textwidth}
-        \begin{center}
-            \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{service1.png}
-        \end{center}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-        \begin{center}
-            \includegraphics[width=\textwidth,height=\textheight, keepaspectratio]{example2.png}        
-        \end{center}
-    \end{column}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}
     \frametitle{System typów}
     \href{https://dbus.freedesktop.org/doc/dbus-specification.html}{Parę przykładów:}
     \begin{itemize}
-        \item aai - tablica tablic intów
-        \item a(ss) - array structów z dwoma stringami
-        \item a\{sd\} - mapa klucz-string value-double
-        \item v - variant, dynamiczny typ
+        \item aai - tablica tablic intów \pause
+        \item a(ss) - array structów z dwoma stringami \pause
+        \item a\{sd\} - mapa klucz-string value-double \pause
+        \item v - variant, dynamiczny typ opakowany w klasę Variant \pause
         \item a\{sv\} - mapa z wartościami o różnych typach
     \end{itemize}
 \end{frame}

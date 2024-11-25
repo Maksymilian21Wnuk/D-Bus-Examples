@@ -1,14 +1,57 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection '
+1.0//EN"
+                      '
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<!-- GDBus 2.72.4 -->
 <node>
-    <interface name="org.meks.Logger">
-        <method name="AddLog">
-            <arg direction="in"  type="s" name="log_str" />
-            <arg direction="out" type="s" />
-        </method>
-        <signal name="CountChange">
-            <arg direction="out" type="i" name="count" />
-        </signal>
-        <property name="Upper" type="b" access="readwrite"/>
-        <property name="LogCount" type="i" access="read" />
-        <property name="LogFileName" type="s" access="readwrite"/>
-    </interface>
+  <interface name="org.freedesktop.DBus.Properties">
+    <method name="Get">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="s" name="property_name" direction="in"/>
+      <arg type="v" name="value" direction="out"/>
+    </method>
+    <method name="GetAll">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="a{sv}" name="properties" direction="out"/>
+    </method>
+    <method name="Set">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="s" name="property_name" direction="in"/>
+      <arg type="v" name="value" direction="in"/>
+    </method>
+    <signal name="PropertiesChanged">
+      <arg type="s" name="interface_name"/>
+      <arg type="a{sv}" name="changed_properties"/>
+      <arg type="as" name="invalidated_properties"/>
+    </signal>
+  </interface>
+  <interface name="org.freedesktop.DBus.Introspectable">
+    <method name="Introspect">
+      <arg type="s" name="xml_data" direction="out"/>
+    </method>
+  </interface>
+  <interface name="org.freedesktop.DBus.Peer">
+    <method name="Ping"/>
+    <method name="GetMachineId">
+      <arg type="s" name="machine_uuid" direction="out"/>
+    </method>
+  </interface>
+  <interface name="org.meks.Logger">
+    <method name="AddLog">
+      <arg type="s" name="log_str" direction="in">
+      </arg>
+      <arg type="s" name="arg_1" direction="out">
+      </arg>
+    </method>
+    <signal name="CountChange">
+      <arg type="i" name="count">
+      </arg>
+    </signal>
+    <property type="b" name="Upper" access="readwrite">
+    </property>
+    <property type="i" name="LogCount" access="read">
+    </property>
+    <property type="s" name="LogFileName" access="readwrite">
+    </property>
+  </interface>
 </node>
