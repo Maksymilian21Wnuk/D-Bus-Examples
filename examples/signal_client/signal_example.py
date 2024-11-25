@@ -3,7 +3,7 @@ from gi.repository import GLib
 
 
 def signal_handler(payload):
-    print("{} lines".format(payload))
+    print("{} lines {}".format(payload[0], payload[1]))
 
 def main():
 

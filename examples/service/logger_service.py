@@ -6,7 +6,7 @@ from pydbus.generic import signal
 
 
 # Logger service with xml representation
-class Logger(object):
+class Logger():
     """
     <node>
         <interface name="org.meks.Logger">
@@ -15,7 +15,7 @@ class Logger(object):
                 <arg direction="out" type="s" />
             </method>
             <signal name="CountChange">
-                <arg direction="out" type="i" name="count" />
+                <arg direction="out" type="(ib)" name="count" />
             </signal>
             <property name="Upper" type="b" access="readwrite"/>
             <property name="LogCount" type="i" access="read" />
@@ -38,7 +38,8 @@ class Logger(object):
             self.LogCount = 0
     
     CountChange = signal()
-    
+    PropertiesChange = signal()
+
     def AddLog(self, log_str):
         # date and time to log string
         log_str = "{} at {}".format(log_str, datetime.datetime.now())
@@ -49,7 +50,7 @@ class Logger(object):
             file.write(log_str + "\n")
             self.LogCount += 1
         # example of signalisation change of count
-        self.CountChange(self.LogCount)
+        self.CountChange((self.LogCount, self.LogCount > 5))
         return "Log saved"
         
 

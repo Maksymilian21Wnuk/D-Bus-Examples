@@ -28,18 +28,18 @@ proxy = bus.get(SERVICE_NAME, '/org/meks/Logger/1')
 # get methods of logger iface
 res = proxy[LOGGER_INTERFACE]
 
-print(res.AddLog("Some log"))
+#print(res.AddLog("Some log"))
 
 # iface of properties
 properties = proxy[PROPERTIES_INTERFACE]
 
 # get all properties method example
-print(properties.GetAll('org.meks.Logger'))
+#print(properties.GetAll('org.meks.Logger'))
 
 # won't change as LogCount is read only
 #properties.Set('org.meks.Logger', 'LogCount', GLib.Variant('i', 1000))
 
 # Upper wil change as it is read-write
-#properties.Set('org.meks.Logger', 'Upper', GLib.Variant('b', True))
+properties.Set('org.meks.Logger', 'Upper', GLib.Variant('b', True))
 
 #print(res.AddLog("Some log"))

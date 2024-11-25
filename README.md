@@ -87,6 +87,19 @@ of interface org.freedesktop.DBus with method ListNames, this should print reply
 dbus-send --session --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames
 ```
 
+4. Examples:
+```bash
+dbus-send --session --print-reply --dest=org.meks.Logger /org/meks/Logger/1 org.meks.Logger.AddLog string:"asdf"
+#
+dbus-monitor "interface='org.meks.Logger'"
+#
+dbus-send --session --print-reply --dest=org.meks.Logger /org/meks/Logger/1 org.freedesktop.DBus.Properties.Set string:org.meks.Logger string:Upper variant:boolean:false
+#
+dbus-send --session --print-reply --dest=org.meks.Logger /org/meks/Logger/1 org.freedesktop.DBus.Introspectable.Introspect
+
+
+```
+
 
 ## Basics <a name="basics"> </a>
 ### Connecting to bus
