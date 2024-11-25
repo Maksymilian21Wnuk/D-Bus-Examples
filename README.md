@@ -33,13 +33,12 @@ setting them.
 
 ## Requirements <a name="requirements"> </a>
 - dbus_python==1.2.18
-- pick==2.4.0
 - PyGObject==3.42.1
 - linux os based system
 
-You may install python's requirements using
+You may install requirements using
 ```bash
-pip install -r requirements.txt
+make requirements
 ```
 in project's root
 ## Tools & Commands <a name="tools--commands"> </a>

@@ -2,15 +2,26 @@
 
 \begin{frame}
     \frametitle{Interfejsy standardowe}
-    Interfejsy pozwalające badać właściwości 
-    serwisów. Między innymi:
+    Interfejsy zapewniające definicje metod 
+    przydatne przy implementacji serwisów.
+    Bindingi mogą implicite implementować!
     \begin{itemize}
-        \item org.freedesktop.DBus.Peer - metody Ping i GetMachineId
-        \item org.freedesktop.DBus.Introspectable - reprezentacja obiektu w XML
-        \item org.freedesktop.DBus.Properties - manipulacja właściwościami, odczyt wartości
-        \item org.freedesktop.DBus.ObjectManager
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Peer.html}{org.freedesktop.DBus.Peer} - metody Ping i GetMachineId \pause
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Introspectable.html}{org.freedesktop.DBus.Introspectable} - reprezentacja obiektu w XML \pause
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Properties.html}{org.freedesktop.DBus.Properties} - manipulacja właściwościami, odczyt wartości \pause
+        \item \href{URL}{org.freedesktop.DBus.ObjectManager} - zarządzanie obiektami udostępnianymi przez serwis
     \end{itemize}
 \end{frame}
+
+%\begin{frame}
+%    \frametitle{Co możemy implementować?}
+%    Istnieje wiele interfejsów z możliwością implementacji.
+%    Przykładowe API do implementacji:
+%    \begin{itemize}
+%        \item Interfejsy standardowe
+%        \item \href{https://specifications.freedesktop.org/mpris-spec/latest/}{Standard MPRIS}-odtwarzacze muzyki
+%    \end{itemize}
+%\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{XML}
@@ -41,14 +52,11 @@
 
 
 \begin{frame}
-    \frametitle{Co możemy implementować?}
-    Istnieje wiele interfejsów z możliwością implementacji.
-    Przykładowe API do implementacji:
-    \begin{itemize}
-        \item \href{https://specifications.freedesktop.org/mpris-spec/latest/}{Standard MPRIS}-odtwarzacze muzyki
-        \item Więcej na: \href{https://specifications.freedesktop.org/}{https://specifications.freedesktop.org/}
-    \end{itemize}
+    \frametitle{Policy XML}
+    Kontrola dostępu do serwisów, metod i sygnałów.
+    Znajduje się w /etc/dbus-1/ lub /usr/share/dbus-1
 \end{frame}
+
 
 
 \begin{frame}
