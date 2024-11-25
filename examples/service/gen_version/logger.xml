@@ -1,6 +1,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-Bus Object Introspection 1.0//EN"
  "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
-<node name="/Logger">
+<node>
     <interface name="org.freedesktop.DBus.Introspectable">
       <method name="Introspect">
         <arg direction="out" type="s" />
@@ -24,14 +24,16 @@
       </method>
     </interface>
 
-    <interface name="org.meks.Logger">
-        <property name="upper" type="b" access="readwrite"/>
-        <property name="log_count" type="i" access="read" />
-        <signal name="LogCountLimit">
-        </signal>
+   <interface name="org.meks.Logger">
+        <property type="b" name="Upper" access="readwrite"/>
+        <property type="i" name="LogCount" access="read"/>
+        <property type="s" name="LogFileName" access="readwrite"/>
         <method name="AddLog">
-            <arg direction="in"  type="s" name="log_str" />
-            <arg direction="out" type="s" />
+            <arg type="s" name="log_str" direction="in"/>
+            <arg type="s" name="return_val" direction="out"/>
         </method>
-    </interface>
+        <signal name="CountChange">
+            <arg type="(ib)" name="count"/>
+        </signal>
+   </interface>
 </node>

@@ -1,17 +1,6 @@
 
 
-\begin{frame}
-    \frametitle{Interfejsy standardowe}
-    Interfejsy zapewniające definicje metod 
-    przydatne przy implementacji serwisów.
-    Bindingi mogą implicite implementować!
-    \begin{itemize}
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Peer.html}{org.freedesktop.DBus.Peer} - metody Ping i GetMachineId \pause
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Introspectable.html}{org.freedesktop.DBus.Introspectable} - reprezentacja obiektu w XML \pause
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Properties.html}{org.freedesktop.DBus.Properties} - manipulacja właściwościami, odczyt wartości \pause
-        \item \href{URL}{org.freedesktop.DBus.ObjectManager} - zarządzanie obiektami udostępnianymi przez serwis
-    \end{itemize}
-\end{frame}
+
 
 %\begin{frame}
 %    \frametitle{Co możemy implementować?}
@@ -39,7 +28,7 @@
                 <arg direction="out" type="s" />
             </method>
             <signal name="CountChange">
-                <arg direction="out" type="i" name="count" />
+                <arg type="(ib)" name="count" />
             </signal>
             <property name="Upper" type="b" access="readwrite"/>
             <property name="LogCount" type="i" access="read" />
@@ -54,7 +43,9 @@
 \begin{frame}
     \frametitle{Policy XML}
     Kontrola dostępu do serwisów, metod i sygnałów.
-    Znajduje się w /etc/dbus-1/ lub /usr/share/dbus-1
+    Znajduje się w /etc/dbus-1/system.d lub /usr/share/dbus-1/system.d
+
+    Przykład: NetworkManager.conf
 \end{frame}
 
 
@@ -66,7 +57,8 @@
         \item dbus-send - wysyłanie wiadomości do busy
         \item d-feet - graficzny debugger do sprawdzania
         serwisów i wysyłania wiadomości
-        \item 
+        \item busctl - komenda do badania serwisów
+        \item gdbus-codegen - generowanie kodu w C, biblioteka GDbus
     \end{itemize}
 \end{frame}
 
@@ -74,11 +66,24 @@
     \frametitle{Implementacje, Bindingi}
     Freedesktop.org oferuje implementacje i bindingi protokołu w D-Bus. Najciekawsze:
     \begin{itemize}
-        \item pydbus - wysokopoziomowa implementacja w pythonie, nie mylić z dbus library!
-        \item zbus - implementacja w rust
         \item libdbus - niskopoziomowe API w C, nie polecane do pisania 
         prostych aplikacji
-        \item GDbus - implementacja w C, już lepiej w tym pisać.
-        Ale kod lepiej wygenerować
+        \item GDbus - niezależna od libdbus implementacja d-bus w C
+        \item pydbus - wysokopoziomowy wrapper w pythonie na podstawie GDbus
+        \item zbus, DBus-Java i inne
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Podsumowanie}
+    \begin{itemize}
+        \item IPC służące do wykonywania metod 
+        i nasłuchiwania sygnałów serwisów
+        \item Serwisy składające się z obiektów implementujących interfejsy
+        z definicjami sygnałów, metod i właściwości(properties)
+        \item Dobre do wymiany pojedynczych wiadomości, kontrola
+        \item Fatalne do wymiany danych, szczególnie dużych
+        \item Walidacja typów i autoryzacja dzięki security policy
     \end{itemize}
 \end{frame}

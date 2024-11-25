@@ -21,12 +21,16 @@
         \begin{itemize}
             \item Skomplikowany, złożony standard
             \item Transparentność lokacji
-            \item Kompatybilność
+            \item Problemy z restrykcyjnym firewallem
+            \item Brak planu na standard\pause
         \end{itemize}
+
+
         \item DCOP, Desktop COmmunication Protocol
         \begin{itemize}
-            \item Część KDE...
-            \item ...do czasu D-Busa, KDE 4
+            \item Daemon, implementacja klient-serwer z traffic directorem
+            \item C/C++
+            \item Zastępiony przez D-Bus
         \end{itemize}
     \end{itemize}
 
@@ -44,6 +48,27 @@
     \end{itemize}
 
 \end{frame}
-    
 
+\begin{frame}
+    \frametitle{D-Bus}
+    Potrzeba zaimplementowania ustandaryzowanego,
+    bezpiecznego IPC dla
+    środowisk graficznych.
 
+    2002 - początek projektu
+
+    2006 - stabilna wersja
+\end{frame}
+
+\begin{frame}
+    \frametitle{Zalety}
+    \begin{itemize}
+        \item Prosty 
+        \item Dostępność standardu w wielu językach programowania 
+        \item Security policy 
+        \item Abstrakcja połączenia 
+        \item Walidacja typów
+        \item Centralizacja
+        \item Działanie ad hoc
+    \end{itemize}
+\end{frame}

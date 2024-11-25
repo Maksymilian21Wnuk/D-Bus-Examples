@@ -1,18 +1,27 @@
 \documentclass{beamer}
-\usepackage{beamerthemesplit}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
 
-\usetheme{Rochester}
-\graphicspath{ {./assets/} }
+\definecolor{custom blue}{RGB}{51, 77, 204}
 
-\begin{document}
-\title{Komunikacja międzyprocesowa z D-Busem}   
+\usetheme{CambridgeUS}
+\usecolortheme{whale}
+\setbeamercolor{frametitle}{bg=custom blue, fg=white}
+%\setbeamercolor{title}{bg=deep sky blue, fg=black}
+
+\graphicspath{ {./assets/} }
+\setbeamertemplate{footline}{
+    \hfill\insertframenumber/\inserttotalframenumber\hspace{1em}
+}
+
+\title{Komunikacja międzyprocesowa z D-Busem} 
+\author{Maksymilian Wnuk}  
 \date{\today} 
 
+\begin{document}
 
 \begin{frame}
     \titlepage

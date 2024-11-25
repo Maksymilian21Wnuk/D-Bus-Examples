@@ -86,7 +86,17 @@ of interface org.freedesktop.DBus with method ListNames, this should print reply
 dbus-send --session --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames
 ```
 
-4. Examples:
+4. **busctl**
+
+```bash
+busctl list
+busctl tree <service>
+busctl introspect <service> <object>
+busctl introspect org.freedesktop.PolicyKit1 /org/freedesktop/PolicyKit1/Authority
+```
+
+
+5. Examples:
 ```bash
 dbus-send --session --print-reply --dest=org.meks.Logger /org/meks/Logger/1 org.meks.Logger.AddLog string:"asdf"
 #
