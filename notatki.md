@@ -54,7 +54,7 @@ i sesyjnej
 
 ## komendy:
 ```bash
-busctl --session list
+busctl --user list
 busctl monitor --user org.meks.Logger
 
 
@@ -70,6 +70,9 @@ busctl --user call org.meks.Logger /org/meks/Logger/1 org.freedesktop.DBus.Prope
 # pokazac: dbus-send, dbus-monitor
 # pokazac: busctl monitor, busctl status
 # pokazac: call, introspect, set-property, call
+
+proxy.Notify("notify", 0, "", "Text", "message", [], {}, 5000)
+proxy.Notify("notification", 0, "", "Text", "Body", [], {"urgency": GLib.Variant('i', 2)}, 500)
 
 busctl call com.meks.Logger /com/meks/Logger/1 com.meks.Logger HelloWorld
 
