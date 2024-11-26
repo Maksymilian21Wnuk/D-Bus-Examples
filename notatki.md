@@ -23,6 +23,7 @@ mechanizm do komunikacji dwóch procesów
 - transparentność lokacji obiektu,
 obiekty w tej samej przestrzeni adresowej
 traktowane jakby były w innym procesie, maszynie
+- klient za 80 http - nie dziala przez firewall
 - brak planu przez maintainerow
 - wlasciwie to RPC
 - systemy rozproszone

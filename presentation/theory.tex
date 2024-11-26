@@ -66,19 +66,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Interfejsy standardowe}
-    Interfejsy zapewniające definicje metod, 
-    przydatne przy implementacji serwisów.
-    Bindingi mogą implicite implementować!
-    \begin{itemize}
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Peer.html}{org.freedesktop.DBus.Peer} - metody Ping i GetMachineId \pause
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Introspectable.html}{org.freedesktop.DBus.Introspectable} - reprezentacja obiektu w XML \pause
-        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Properties.html}{org.freedesktop.DBus.Properties} - manipulacja właściwościami, odczyt wartości \pause
-        \item \href{URL}{org.freedesktop.DBus.ObjectManager} - zarządzanie obiektami udostępnianymi przez serwis
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \frametitle{Obiekt}
     \begin{itemize}
         \item Wymaga określenia bus name 
@@ -93,6 +80,8 @@
     \end{itemize}
 \end{frame}
 
+
+
 \begin{frame}
     \frametitle{Metody}
     Synchroniczne. Obiekt implementuje metodę którą
@@ -104,6 +93,19 @@
     \frametitle{Sygnały}
     Asynchroniczne. Obiekt emituje sygnał.
     Klient nasłuchuje sygnałów i implementuje handler.
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Interfejsy standardowe}
+    Interfejsy zapewniające definicje metod, 
+    przydatne przy implementacji serwisów.
+    \begin{itemize}
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Peer.html}{org.freedesktop.DBus.Peer} - metody Ping i GetMachineId \pause
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Introspectable.html}{org.freedesktop.DBus.Introspectable} - reprezentacja obiektu w XML \pause
+        \item \href{https://dbus.freedesktop.org/doc/dbus-java/api/org/freedesktop/DBus.Properties.html}{org.freedesktop.DBus.Properties} - manipulacja właściwościami, odczyt wartości \pause
+        \item \href{URL}{org.freedesktop.DBus.ObjectManager} - zarządzanie obiektami udostępnianymi przez serwis
+    \end{itemize}
 \end{frame}
 
 
