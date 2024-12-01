@@ -1,3 +1,5 @@
+# some notes for presentation
+
 ## IPC
 mechanizm do komunikacji dwóch procesów
 
